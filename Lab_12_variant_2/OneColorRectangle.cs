@@ -18,6 +18,7 @@ namespace Lab_12_variant_2
 
         private OneColorRectangle(){}
 
+        //Instance Singleton
         public static OneColorRectangle Instance()
         {
             if (uniqueInsanse == null)

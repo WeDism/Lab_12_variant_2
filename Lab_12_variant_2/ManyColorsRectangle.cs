@@ -25,6 +25,7 @@ namespace Lab_12_variant_2
             ChangeColorSides(ReCalculate());
         }
 
+        //Instance Singleton
         public static ManyColorsRectangle Instance()
         {
             if (uniqueInsanse == null)
