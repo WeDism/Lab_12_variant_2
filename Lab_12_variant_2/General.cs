@@ -15,9 +15,12 @@ namespace Lab_12_variant_2
     public partial class General : ParentForm
     {
         Bitmap bitmap = new Bitmap(562, 358, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+        public event FormClosingEventHandler EH;
         public General()
         {
             InitializeComponent();
+            EH = new FormClosingEventHandler(General_FormClosing);
+            this.FormClosing += EH;
             iOneColorRectangle = new OneColorRectangle();
             GeneralForm = this;
             iORectangle = new OneColorRectangle();
@@ -29,7 +32,13 @@ namespace Lab_12_variant_2
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show("\tPush: ok or cancel", "Exit", buttons);
+            if (result == DialogResult.Yes)
+            {
+                this.FormClosing -= EH;
+                Application.Exit();
+            }
         }
 
         private void sizeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -39,7 +48,6 @@ namespace Lab_12_variant_2
 
         private void colorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             if ((iOneColorRectangle.X == null) || (iOneColorRectangle.Y == null) ||
                 (iOneColorRectangle.Width == null) || (iOneColorRectangle.Height == null) || (iOneColorRectangle.GeneralColor == null))
                 MessageBox.Show("You are not input data", "Warning!");
@@ -126,6 +134,13 @@ namespace Lab_12_variant_2
                 MessageBox.Show("This is program can't reading\n\t data from file", "Warning!");
                 RectangleOneColorOrMany = true;
             }
+        }
+
+        private void General_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show("\tPush: Ok or Cancel", "Exit", buttons);
+            if (result == DialogResult.No) e.Cancel = true;
         }
     }
 }
