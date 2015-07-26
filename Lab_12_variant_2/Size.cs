@@ -72,7 +72,7 @@ namespace Lab_12_variant_2
                 iOneColorRectangle.X = (float)numericUpDownX.Value;
                 iOneColorRectangle.Y = (float)(numericUpDownY.Value + 33m);
                 RectangleOneColorOrMany = true;
-                iManyColorsRectangle = new ManyColorsRectangle();
+                iManyColorsRectangle = ManyColorsRectangle.Instance();
                 //GeneralForm.General_Paint(this, null);
                 this.Close();
             }

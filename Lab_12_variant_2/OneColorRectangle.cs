@@ -9,11 +9,22 @@ namespace Lab_12_variant_2
 {
     class OneColorRectangle : IRectangle
     {
-        internal static float? x;
-        internal static float? y;
-        internal static float? width;
-        internal static float? height;
-        internal static Color? generalColor;
+        private static float? x;
+        private static float? y;
+        private static float? width;
+        private static float? height;
+        private static Color? generalColor;
+        private static OneColorRectangle uniqueInsanse;
+
+        private OneColorRectangle(){}
+
+        public static OneColorRectangle Instance()
+        {
+            if (uniqueInsanse == null)
+                uniqueInsanse = new OneColorRectangle();
+
+            return uniqueInsanse;
+        }
 
         public float? X
         {

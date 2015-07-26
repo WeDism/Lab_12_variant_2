@@ -21,10 +21,10 @@ namespace Lab_12_variant_2
             InitializeComponent();
             EH = new FormClosingEventHandler(General_FormClosing);
             this.FormClosing += EH;
-            iOneColorRectangle = new OneColorRectangle();
+            iOneColorRectangle = OneColorRectangle.Instance();
             GeneralForm = this;
-            iORectangle = new OneColorRectangle();
-            iMRectangle = new ManyColorsRectangle();
+            iORectangle = OneColorRectangle.Instance();
+            iMRectangle = ManyColorsRectangle.Instance();
             G = this.CreateGraphics();
             GraphicsSaveFile = Graphics.FromImage(bitmap);
             MessageBox.Show("This is program create for\n\tmedium - 125%\n\tsystem text", "Warning!");

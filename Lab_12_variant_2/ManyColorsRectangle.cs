@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -9,23 +10,32 @@ namespace Lab_12_variant_2
 {
     public class ManyColorsRectangle : IRectangle
     {
-        static Color? colorA;
-        static Color? colorB;
-        static Color? colorC;
-        static Color? colorD;
-        static PointF? pointA;
-        static PointF? pointB;
-        static PointF? pointC;
-        static PointF? pointD;
+        private static Color? colorA;
+        private static Color? colorB;
+        private static Color? colorC;
+        private static Color? colorD;
+        private static PointF? pointA;
+        private static PointF? pointB;
+        private static PointF? pointC;
+        private static PointF? pointD;
+        private static ManyColorsRectangle uniqueInsanse;
 
-        public ManyColorsRectangle()
+        private ManyColorsRectangle()
         {
             ChangeColorSides(ReCalculate());
         }
 
+        public static ManyColorsRectangle Instance()
+        {
+            if (uniqueInsanse == null)
+                uniqueInsanse = new ManyColorsRectangle();
+
+            return uniqueInsanse;
+        }
+
         public Color? ReCalculate()
         {
-            OneColorRectangle iOneColorRectangle = new OneColorRectangle();
+            OneColorRectangle iOneColorRectangle = OneColorRectangle.Instance();
             pointA = (iOneColorRectangle.GetDirectReference.X == null) || (iOneColorRectangle.GetDirectReference.Y == null) ?
                 new PointF?() :
                 new PointF?(new PointF((float)iOneColorRectangle.GetDirectReference.X, (float)iOneColorRectangle.GetDirectReference.Y));
@@ -46,7 +56,7 @@ namespace Lab_12_variant_2
                                        (float)(iOneColorRectangle.GetDirectReference.Y + iOneColorRectangle.GetDirectReference.Height)));
             return iOneColorRectangle.GeneralColor;
         }
-        
+
         public ManyColorsRectangle GetDirectReference
         {
             get
