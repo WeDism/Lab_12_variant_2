@@ -52,9 +52,9 @@
     <Compile Include="ColorChange.Designer.cs">
       <DependentUpon>ColorChange.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManyColorsRectangle.cs" />
-    <Compile Include="IRectangle.cs" />
-    <Compile Include="OneColorRectangle.cs" />
+    <Compile Include="Rectangle\ManyColorsRectangle.cs" />
+    <Compile Include="Rectangle\IRectangle.cs" />
+    <Compile Include="Rectangle\OneColorRectangle.cs" />
     <Compile Include="Size.cs">
       <SubType>Form</SubType>
     </Compile>

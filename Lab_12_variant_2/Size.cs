@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Lab_12_variant_2.Rectangle;
 
 namespace Lab_12_variant_2
 {
@@ -73,6 +74,7 @@ namespace Lab_12_variant_2
                 iOneColorRectangle.Y = (float)(numericUpDownY.Value + 33m);
                 RectangleOneColorOrMany = true;
                 iManyColorsRectangle = ManyColorsRectangle.Instance();
+                iManyColorsRectangle.ChangeColorSides(iManyColorsRectangle.ReCalculate());
                 //GeneralForm.General_Paint(this, null);
                 this.Close();
             }

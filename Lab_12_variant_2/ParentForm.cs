@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
+using Lab_12_variant_2.Rectangle;
 
 namespace Lab_12_variant_2
 {
@@ -23,6 +24,21 @@ namespace Lab_12_variant_2
         {
             InvokePaint(GeneralForm, null);
         }
-        
+
+        //public ManyColorsRectangle ReturnManyColorsRectangle
+        //{
+        //    get
+        //    {
+        //        return iManyColorsRectangle;
+        //    }
+        //}
+
+        //public OneColorRectangle ReturnManyColorsRectangle
+        //{
+        //    get
+        //    {
+        //        return iOneColorRectangle;
+        //    }
+        //}
     }
 }

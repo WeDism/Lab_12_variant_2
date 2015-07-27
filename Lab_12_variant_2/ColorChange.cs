@@ -40,8 +40,8 @@ namespace Lab_12_variant_2
         private void checkBoxBlack_Click(object sender, EventArgs e)
         {
             bool logic = true;
-            if (buf_A.Equals("Black") || buf_B.Equals("Black") ||
-                        buf_C.Equals("Black") || buf_D.Equals("Black"))
+            if ((buf_A.Equals("Black") || buf_B.Equals("Black") ||
+                        buf_C.Equals("Black") || buf_D.Equals("Black"))&&!checkBoxBlack.Checked)
             {
                 checkBoxBlack.Checked = true;
                 logic = false;
@@ -135,18 +135,30 @@ namespace Lab_12_variant_2
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            if ((Color.FromName(buf_A) != Color.Black) && (Color.FromName(buf_B) != Color.Black) &&
-                (Color.FromName(buf_C) != Color.Black) && (Color.FromName(buf_D) != Color.Black) &&
-                (buf_A != "") && (buf_B != "") && (buf_C != "") && (buf_D != ""))
+            if (!checkBoxBlack.Checked)
+            {
+                if ((Color.FromName(buf_A) != Color.Black) && (Color.FromName(buf_B) != Color.Black) &&
+                    (Color.FromName(buf_C) != Color.Black) && (Color.FromName(buf_D) != Color.Black) &&
+                    (buf_A != "") && (buf_B != "") && (buf_C != "") && (buf_D != ""))
+                {
+                    iManyColorsRectangle.ColorA = Color.FromName(buf_A);
+                    iManyColorsRectangle.ColorB = Color.FromName(buf_B);
+                    iManyColorsRectangle.ColorC = Color.FromName(buf_C);
+                    iManyColorsRectangle.ColorD = Color.FromName(buf_D);
+                    RectangleOneColorOrMany = false;
+                    this.Close();
+                }
+                else MessageBox.Show("You are not change all sides");
+            }
+            else
             {
                 iManyColorsRectangle.ColorA = Color.FromName(buf_A);
                 iManyColorsRectangle.ColorB = Color.FromName(buf_B);
                 iManyColorsRectangle.ColorC = Color.FromName(buf_C);
                 iManyColorsRectangle.ColorD = Color.FromName(buf_D);
-                RectangleOneColorOrMany = false;
+                RectangleOneColorOrMany = true;
                 this.Close();
             }
-            else MessageBox.Show("You are not change all sides");
         }
 
     }

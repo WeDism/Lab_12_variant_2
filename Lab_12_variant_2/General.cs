@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Threading;
 using System.Runtime.Serialization.Formatters.Binary;
+using Lab_12_variant_2.Rectangle;
 
 namespace Lab_12_variant_2
 {
