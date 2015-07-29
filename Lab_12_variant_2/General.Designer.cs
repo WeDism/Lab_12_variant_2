@@ -54,7 +54,9 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(555, 33);
             this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.TabStop = true;
+            this.menuStrip1.Text = "menuStripGeneral";
+            this.menuStrip1.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.menuStripGeneral_PreviewKeyDown);
             // 
             // sizeToolStripMenuItem
             // 
@@ -128,8 +130,8 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "General";
-            //this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.General_FormClosing);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.General_Paint);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.General_PreviewKeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

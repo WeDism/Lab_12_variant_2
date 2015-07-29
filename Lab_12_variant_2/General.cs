@@ -124,7 +124,7 @@ namespace Lab_12_variant_2
             {
                 try
                 {
-                    bitmap =(Bitmap)Image.FromFile(Open.FileName);
+                    bitmap = (Bitmap)Image.FromFile(Open.FileName);
                     G.DrawImage(bitmap, 0, 0);
                     bitmap.Dispose();
                 }
@@ -142,6 +142,25 @@ namespace Lab_12_variant_2
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result = MessageBox.Show("\tPush: Ok or Cancel", "Exit", buttons);
             if (result == DialogResult.No) e.Cancel = true;
+        }
+
+        private void General_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyData == Keys.Escape)
+            {
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show("\tPush: ok or cancel", "Exit", buttons);
+                if (result == DialogResult.Yes)
+                {
+                    this.FormClosing -= EH;
+                    Application.Exit();
+                }
+            }
+        }
+        
+        private void menuStripGeneral_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            General_PreviewKeyDown(null, e);
         }
     }
 }
